@@ -195,3 +195,17 @@ td {
   border: 1px solid blue;
   background-color: yellow;
 }
+
+#dragdrop {
+  display: flex;
+  margin: 40px 0;
+}
+
+#dragbox1,
+#dragbox2 {
+  width: 100px;
+  height: 60px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+}

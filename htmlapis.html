@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HTML APIs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="aboutme.css" />
+    <link rel="icon" type="image/x-icon" href="img-profile.jpg" />
+  </head>
+  <body>
+    <p>Click the button to get your coordinates.</p>
+    <button onclick="getLocation()">Try It</button>
+    <p id="demo"></p>
+
+    <p>Drag the image back and forth between the two div elements.</p>
+    <div id="dragdrop">
+      <div id="dragbox1" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <img
+          src="img-profile.jpg"
+          draggable="true"
+          ondragstart="drag(event)"
+          id="drag1"
+          width="100"
+          height="40"
+        />
+      </div>
+
+      <div
+        id="dragbox2"
+        ondrop="drop(event)"
+        ondragover="allowDrop(event)"
+      ></div>
+    </div>
+
+    <p>
+      <button onclick="clickCounterSession()" type="button">Click here</button>
+    </p>
+    <div id="result"></div>
+    <p>Click the button to see the counter increase.</p>
+    <p>
+      This is done using Session Storage. The count remains until the browser
+      tab/window is not closed.
+    </p>
+
+    <p>
+      <button onclick="clickCounterLocal()" type="button">Click here</button>
+    </p>
+    <div id="result1"></div>
+    <p>Click the button to see the counter increase.</p>
+    <p>
+      This is done using Local Storage. The count remains until the local
+      storage is not cleared.
+    </p>
+
+    <br />
+    <p>Count numbers using web workers: <output id="wwresult"></output></p>
+    <button onclick="startWorker()">Start Worker</button>
+    <button onclick="stopWorker()">Stop Worker</button>
+
+    <p class="navigate">go to <a href="/">home page</a></p>
+    <p class="navigate">
+      To know more about me click <a href="/moreaboutme.html">here</a>
+    </p>
+    <p class="navigate">go to <a href="/formpage.html">forms page</a></p>
+    <p class="navigate" class="navigate">
+      go to <a href="/graphics.html">graphics page</a>
+    </p>
+    <p class="navigate">go to <a href="/multimedia.html">multimedia page</a></p>
+
+    <script>
+      // geolocation
+      var x = document.getElementById("demo");
+
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.watchPosition(showPosition);
+        } else {
+          x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+      }
+
+      function showPosition(position) {
+        x.innerHTML =
+          "Latitude: " +
+          position.coords.latitude +
+          "<br>Longitude: " +
+          position.coords.longitude;
+      }
+
+      // drag and drop
+      function allowDrop(ev) {
+        ev.preventDefault();
+      }
+
+      function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+      }
+
+      function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+      }
+
+      //sessionStorage
+      function clickCounterSession() {
+        if (typeof Storage !== "undefined") {
+          if (sessionStorage.clickcount) {
+            sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+          } else {
+            sessionStorage.clickcount = 1;
+          }
+          document.getElementById("result").innerHTML =
+            "You have clicked the button " +
+            sessionStorage.clickcount +
+            " time(s) in this session.";
+        } else {
+          document.getElementById("result").innerHTML =
+            "Sorry, your browser does not support web storage...";
+        }
+      }
+
+      //localStorage
+      function clickCounterLocal() {
+        if (typeof Storage !== "undefined") {
+          if (localStorage.clickcount) {
+            localStorage.clickcount = Number(localStorage.clickcount) + 1;
+          } else {
+            localStorage.clickcount = 1;
+          }
+          document.getElementById("result1").innerHTML =
+            "You have clicked the button " +
+            localStorage.clickcount +
+            " time(s) in this session.";
+        } else {
+          document.getElementById("result").innerHTML =
+            "Sorry, your browser does not support web storage...";
+        }
+      }
+
+      // web workers
+      var w;
+
+      function startWorker() {
+        if (typeof Worker !== "undefined") {
+          if (typeof w == "undefined") {
+            w = new Worker("demo_workers.js");
+          }
+          w.onmessage = function (event) {
+            document.getElementById("wwresult").innerHTML = event.data;
+          };
+        } else {
+          document.getElementById("wwresult").innerHTML =
+            "Sorry! No Web Worker support.";
+        }
+      }
+
+      function stopWorker() {
+        w.terminate();
+        w = undefined;
+      }
+    </script>
+  </body>
+</html>
