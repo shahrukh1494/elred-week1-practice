@@ -1,9 +1,13 @@
 /* external style sheet */
 * {
-  background-color: lightgray;
   scroll-behavior: smooth;
   margin: 20px auto;
   max-width: 610px;
+}
+
+body {
+  counter-reset: section;
+  background-color: lightgray;
 }
 
 h1,
@@ -208,4 +212,116 @@ td {
   margin: 10px;
   padding: 10px;
   border: 1px solid black;
+}
+
+q:lang(no) {
+  quotes: "~""~";
+}
+
+::marker {
+  color: red;
+  font-size: 23px;
+}
+
+::selection {
+  color: red;
+  background: yellow;
+}
+
+p::first-letter {
+  color: #ff0000;
+  font-size: xx-large;
+}
+
+p::first-line {
+  font-variant: small-caps;
+}
+
+img:hover {
+  opacity: 0.5;
+}
+
+.nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+}
+
+.navlink {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04aa6d;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+input[type="submit"] {
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #4d3030;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+h2::before {
+  counter-increment: section;
+  content: "Section " counter(section) ": ";
+}
+
+#sometext {
+  left: 50px;
+  width: calc(100% - 200px);
+  border: 1px solid black;
+  background-color: yellow;
+  padding: 5px;
 }
