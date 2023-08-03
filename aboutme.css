@@ -1,13 +1,17 @@
-/* external style sheet */
 * {
   scroll-behavior: smooth;
   margin: 20px auto;
   max-width: 610px;
+  box-sizing: border-box;
+}
+
+:root {
+  --greybg: lightgray;
 }
 
 body {
   counter-reset: section;
-  background-color: lightgray;
+  background-color: var(--greybg);
 }
 
 h1,
@@ -54,6 +58,10 @@ p.intro {
 
   /* border: 4px solid hsla(9, 100%, 64%, 0.5); */
   /* border: 4px solid rgba(255, 91, 71, 0.5); */
+}
+
+.profileimage:hover {
+  opacity: 0.5;
 }
 
 .tech {
@@ -103,6 +111,14 @@ p.lorem2 {
   letter-spacing: -2px;
   line-height: 1.8;
   word-spacing: 10px;
+  transform: matrix(1, 0, 0.5, 1, 150, 0);
+  /* transform: skew(20deg, 10deg); */
+  /* transform: scaleY(0.5); */
+  /* transform: rotate(20deg); */
+  /* transform: translate(50px, 100px); */
+  /* transform: rotateZ(90deg); */
+  /* transform: rotateY(150deg);
+  transform: rotateX(150deg); */
 }
 
 .decoration1 {
@@ -178,6 +194,7 @@ td {
   background-color: green;
   border: 2px solid #4caf50;
   text-align: center;
+  z-index: 20;
 }
 
 .overflow {
@@ -237,15 +254,12 @@ p::first-line {
   font-variant: small-caps;
 }
 
-img:hover {
-  opacity: 0.5;
-}
-
 .nav {
+  --greybg: #333;
   list-style-type: none;
   margin: 0;
   padding: 0;
-  background-color: #333;
+  background-color: var(--greybg);
 }
 
 .navlink {
@@ -324,4 +338,239 @@ h2::before {
   border: 1px solid black;
   background-color: yellow;
   padding: 5px;
+}
+
+div {
+  background-color: transparent;
+}
+
+.text1 {
+  max-width: 200px;
+  word-wrap: break-word;
+}
+
+.transition {
+  width: 100px;
+  height: 100px;
+  background: red;
+  transition: width 2s, height 2s, transform 2s;
+}
+
+.transition:hover {
+  width: 300px;
+  height: 300px;
+  transform: rotate(180deg);
+}
+
+.animate {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  position: relative;
+  animation: animationname 5s linear 2s infinite alternate;
+}
+
+@keyframes animationname {
+  0% {
+    background-color: red;
+    left: 0px;
+    top: 0px;
+  }
+  25% {
+    background-color: yellow;
+    left: 200px;
+    top: 0px;
+  }
+  50% {
+    background-color: blue;
+    left: 200px;
+    top: 200px;
+  }
+  75% {
+    background-color: green;
+    left: 0px;
+    top: 200px;
+  }
+  100% {
+    background-color: red;
+    left: 0px;
+    top: 0px;
+  }
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.parisimage {
+  border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+  -webkit-box-reflect: below 0px
+    linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
+}
+
+div.paris2 {
+  width: 80%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
+div.container {
+  text-align: center;
+  padding: 10px 20px;
+}
+
+/* start */
+
+.overlaycontainer {
+  position: relative;
+  width: 50%;
+}
+
+.imageavatar {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  background-color: #008cba;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: 0.5s ease;
+}
+
+.overlaycontainer:hover .overlay {
+  bottom: 0;
+  height: 100%;
+}
+
+.text {
+  white-space: nowrap;
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  border: 1px solid #ddd;
+}
+
+.pagination a.active {
+  background-color: #4caf50;
+  color: white;
+  border: 1px solid #4caf50;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+.newspaper {
+  column-count: 3;
+  column-gap: 40px;
+  column-rule: 1px solid lightblue;
+}
+
+.headingnewspaper {
+  column-span: all;
+}
+
+textarea {
+  resize: none;
+}
+
+.resizable {
+  --greybg: white;
+  border: 2px solid;
+  padding: 20px;
+  width: 600px;
+  resize: both;
+  overflow: auto;
+  background-color: var(--greybg);
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    --greybg: olive;
+    background-color: var(--greybg);
+  }
+}
+
+.flex-container {
+  display: flex;
+  align-items: stretch;
+  background-color: #f1f1f1;
+}
+
+.flex-container > div {
+  background-color: DodgerBlue;
+  color: white;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+
+@media (max-width: 800px) {
+  .flex-container {
+    flex-direction: column;
+  }
 }
