@@ -1,0 +1,85 @@
+@import "textimport";
+
+// variables
+$myFont: Helvetica, sans-serif;
+$myColor: red;
+$myFontSize: 18px;
+$myWidth: 680px;
+
+body {
+  font-family: $myFont;
+  font-size: $myFontSize;
+  text-align: center;
+}
+
+#container {
+    margin: auto;
+    width: $myWidth;
+    border: 1px blue double;
+    color: $myColor; 
+} 
+
+// nesting
+nav {
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font: {
+        family: $myFont;
+        size: $myFontSize;
+        weight: bold;
+      }
+      
+      text: {
+        
+        transform: lowercase;
+      }
+    }
+    li {
+      display: inline-block;
+    }
+    a {
+      display: block;
+      padding: 6px 12px;
+      text-decoration: none;
+    }
+  } 
+
+  // mixin usage
+  @mixin longtext-properties {
+    margin: 12px auto;
+    max-width: 600px;
+    @include longtext-other-properties;
+    @include border;
+    @include colors($borderColor: lightgreen);
+  }
+
+  @mixin longtext-other-properties {
+    border: 2px solid gray;
+    padding: 12px;
+  }
+
+  @mixin border {
+    border-radius: 5px;
+  }
+
+  @mixin colors($borderColor: black, $bgColor: gray) {
+    border-color: $borderColor;
+    background-color: $bgColor;
+  }
+
+  .mixintest {
+    @include longtext-properties;
+  }
+
+  // extend
+  .para {
+    font-weight: bold;
+  }
+
+  .extendexample {
+    @extend .para;
+  }
+
+  

@@ -1,0 +1,52 @@
+#text1 {
+  color: green;
+}
+
+#text2 {
+  color: green;
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+  font-size: 18px;
+  text-align: center;
+}
+
+#container {
+  margin: auto;
+  width: 680px;
+  border: 1px blue double;
+  color: red;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: lowercase;
+}
+nav li {
+  display: inline-block;
+}
+nav a {
+  display: block;
+  padding: 6px 12px;
+  text-decoration: none;
+}
+
+.mixintest {
+  margin: 12px auto;
+  max-width: 600px;
+  border: 2px solid gray;
+  padding: 12px;
+  border-radius: 5px;
+  border-color: lightgreen;
+  background-color: gray;
+}
+
+.para, .extendexample {
+  font-weight: bold;
+}/*# sourceMappingURL=index.css.map */

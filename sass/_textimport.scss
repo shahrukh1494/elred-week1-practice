@@ -1,0 +1,8 @@
+#text1 {
+    $myColor: green !global; // usage of !global
+    color: $myColor;
+  }
+  
+  #text2 {
+    color: $myColor;
+  }
