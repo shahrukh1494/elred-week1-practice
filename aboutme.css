@@ -574,3 +574,48 @@ textarea {
     flex-direction: column;
   }
 }
+
+.grid-container {
+  display: grid;
+  /* grid-template-columns: auto auto auto auto; */
+  grid-template-rows: 80px 120px;
+  grid-template-columns: 80px 200px auto 40px;
+  gap: 10px;
+  background-color: #2196f3;
+  padding: 10px;
+  /* justify-content: space-around; */
+  /* justify-content: space-evenly; */
+  /* justify-content: start; */
+  /* justify-content: center; */
+  /* justify-content: end; */
+  align-content: center;
+}
+
+.grid-container > div {
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.grid-container-2 {
+  display: grid;
+  grid-template-areas: "myArea myArea myArea myArea myArea";
+  grid-template-columns: auto auto auto auto auto auto;
+  gap: 10px;
+  background-color: #2196f3;
+  padding: 10px;
+}
+
+.grid-container-2 > div {
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.item8 {
+  grid-area: 2 / 1 / span 2 / span 3;
+}
