@@ -734,6 +734,190 @@
       </button>
     </div>
 
+    <div class="container mt-3">
+      <h2>Stacked form</h2>
+      <form action="/action_page.php">
+        <div class="mb-3 mt-3">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Enter email"
+            name="email"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="pwd">Password:</label>
+          <input
+            type="password"
+            class="form-control"
+            id="pwd"
+            placeholder="Enter password"
+            name="pswd"
+          />
+        </div>
+        <div class="form-check mb-3">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" name="remember" />
+            Remember me
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+    <div class="container my-3">
+      <h2>Select Menu</h2>
+      <p>
+        To style a select menu in Bootstrap 5, add the .form-select class to the
+        select element:
+      </p>
+      <form action="#">
+        <label for="sel1" class="form-label">Select list (select one):</label>
+        <select class="form-select" id="sel1" name="sellist1">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+        </select>
+        <br />
+
+        <label for="sel2" class="form-label"
+          >Mutiple select list (hold shift to select more than one):</label
+        >
+        <select multiple class="form-select" id="sel2" name="sellist2">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+        <div class="form-check form-switch">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="mySwitch"
+            name="darkmode"
+            value="yes"
+            checked
+          />
+          <label class="form-check-label" for="mySwitch">Mode</label>
+        </div>
+        <div class="form-check">
+          <input
+            type="radio"
+            class="form-check-input"
+            id="radio1"
+            name="optradio"
+            value="option1"
+            checked
+          />Option 1
+          <label class="form-check-label" for="radio1"></label>
+        </div>
+        <div class="form-check">
+          <input
+            type="radio"
+            class="form-check-input"
+            id="radio2"
+            name="optradio"
+            value="option2"
+          />Option 2
+          <label class="form-check-label" for="radio2"></label>
+        </div>
+        <div class="form-check">
+          <input type="radio" class="form-check-input" disabled />Option 3
+          <label class="form-check-label"></label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="check1"
+            name="option1"
+            value="something"
+            checked
+          />
+          <label class="form-check-label">Option 1</label>
+        </div>
+        <label for="customRange" class="form-label">Custom range</label>
+        <input
+          type="range"
+          class="form-range"
+          id="customRange"
+          step="5"
+          min="0"
+          max="50"
+        />
+        <div class="input-group">
+          <span class="input-group-text">@</span>
+          <input type="text" class="form-control" placeholder="Username" />
+        </div>
+
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Your Email" />
+          <span class="input-group-text">@example.com</span>
+        </div>
+        <div class="form-floating mb-3 mt-3">
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            placeholder="Enter email"
+            name="email"
+          />
+          <label for="email">Email</label>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+      </form>
+    </div>
+
+    <div class="container my-3">
+      <form action="/action_page.php" class="was-validated">
+        <div class="mb-3 mt-3">
+          <label for="uname" class="form-label">Username:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="uname"
+            placeholder="Enter username"
+            name="uname"
+            required
+          />
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <div class="mb-3">
+          <label for="pwd" class="form-label">Password:</label>
+          <input
+            type="password"
+            class="form-control"
+            id="pwd"
+            placeholder="Enter password"
+            name="pswd"
+            required
+          />
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <div class="form-check mb-3">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="myCheck"
+            name="remember"
+            required
+          />
+          <label class="form-check-label" for="myCheck"
+            >I agree on blabla.</label
+          >
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Check this checkbox to continue.</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
     <script>
       var tooltipTriggerList = [].slice.call(
         document.querySelectorAll('[data-bs-toggle="tooltip"]')
