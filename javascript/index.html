@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <title>About Me</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      max-width: 600px;
+      margin: 40px auto;
+      text-align: left;
+    }
+  </style>
+  <body>
+    <div>Let block scope example :</div>
+    <div id="letexample"></div>
+    <br />
+    <div>2 raised to the power 4 is :</div>
+    <div id="operators"></div>
+    <br />
+    <div>Function product :</div>
+    <div id="funcVal"></div>
+    <br />
+    <div>Object example</div>
+    <div id="objString"></div>
+    <br />
+    <div>Object property accessed :</div>
+    <div id="objProperty"></div>
+    <br />
+    <button onclick="document.getElementById('eventDemo').innerHTML=Date()">
+      The time is?
+    </button>
+    <p id="eventDemo"></p>
+    <br />
+    <p>The length of the string is:</p>
+    <p id="textLength"></p>
+    <br />
+    <p>The sliced (extracted) part of the string is:</p>
+    <p id="slice"></p>
+    <br />
+    <button onclick="myReplaceFunction()">Replace</button>
+    <p id="replaceText">Please visit Microsoft!</p>
+    <br />
+    <button onclick="myFunctionUpperCase()">Change to uppercase</button>
+    <p id="upperCase">Hello World!</p>
+    <br />
+    <p>
+      The indexOf() method accepts a second parameter as the starting position
+      for the search:
+    </p>
+    <p id="indexOf"></p>
+    <br />
+    <p>Template literals allows variables in strings:</p>
+    <p id="literal"></p>
+    <br />
+    <p>The toString() method returns an array as a comma separated string:</p>
+    <p id="arrayToString"></p>
+    <br />
+    <p>The push() method appends a new element to an array:</p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <br />
+    <p>Sort the array in descending order:</p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+    <br />
+    <p>Create a new array from all array elements that passes a test:</p>
+    <p id="demo5"></p>
+    <br />
+    <p>Hoisted value :</p>
+    <p id="demoHoisting"></p>
+    <br />
+    <p>JSON example :</p>
+    <p id="demoJSON"></p>
+    <br />
+    <div>Set example :</div>
+    <p id="set"></p>
+    <br />
+    <div>Map example :</div>
+    <p id="map"></p>
+    <br />
+    <p>Class example :</p>
+    <p id="class"></p>
+    <br />
+    <h2>setTimeout() with a Callback</h2>
+
+    <p>Wait 3 seconds (3000 milliseconds) for this page to change.</p>
+
+    <h1 id="callback"></h1>
+    <br />
+
+    <h2>JavaScript Promise</h2>
+
+    <p>Wait 3 seconds (3000 milliseconds) for this page to change.</p>
+
+    <h1 id="demoPromise"></h1>
+    <br />
+    <h2>JavaScript async / await</h2>
+
+    <p>Wait 3 seconds (3000 milliseconds) for this page to change.</p>
+
+    <h1 id="demoAsyncAwait"></h1>
+    <br />
+
+    <script src="index.js"></script>
+  </body>
+</html>
