@@ -157,3 +157,59 @@ async function myDisplay() {
 }
 
 myDisplay();
+
+function myDisplayer(something) {
+  document.getElementById("callbackfunc").innerHTML = something;
+}
+
+function myCalculator(num1, num2, myCallback) {
+  let sum = num1 + num2;
+  myCallback(sum);
+}
+
+myCalculator(5, 5, myDisplayer);
+
+function myValidateFunction() {
+  let x = document.getElementById("numb").value;
+  let text;
+  if (isNaN(x) || x < 1 || x > 10) {
+    text = "Input not valid";
+  } else {
+    text = "Input OK";
+  }
+  document.getElementById("valid").innerHTML = text;
+}
+
+document.getElementById("browser").innerHTML =
+  "Browser inner window width: " +
+  window.innerWidth +
+  "px<br>" +
+  "Browser inner window height: " +
+  window.innerHeight +
+  "px";
+
+document.getElementById("pixeldepth").innerHTML =
+  "Screen pixel depth is " + screen.pixelDepth;
+
+function myAlertFunction() {
+  var txt;
+  if (confirm("Press a button!")) {
+    txt = "You pressed OK!";
+  } else {
+    txt = "You pressed Cancel!";
+  }
+  document.getElementById("demoalert").innerHTML = txt;
+}
+
+const textJSON = '{"name":"John", "birth":"1986-12-14", "city":"New York"}';
+const obj = JSON.parse(textJSON);
+obj.birth = new Date(obj.birth);
+document.getElementById("json").innerHTML = obj.name + ", " + obj.birth;
+
+const objNew = { name: "John", age: 30, city: "New York" };
+const myJSON = JSON.stringify(objNew);
+document.getElementById("demoStringify").innerHTML = myJSON;
+
+const myJSONParse = '{"name":"John", "age":30, "car":null}';
+const myObj = JSON.parse(myJSONParse);
+document.getElementById("demoParse").innerHTML = myObj.name;
